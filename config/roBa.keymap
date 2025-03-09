@@ -72,8 +72,6 @@
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
-            // 追加: スクロールのタップ時間を設定 (20ms)
-
             tap-ms = <20>;
         };
 
@@ -95,7 +93,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mo 2>, <&kp LG(LANGUAGE_1)>, <&kp LANG2>;
+            bindings = <&mo 2>, <&kp LANG1>, <&kp LANG2>;
         };
     };
 
@@ -110,7 +108,9 @@
 &kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 INT_HENKAN  &mt LGUI SPACE  &lang_dance        &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings =
+                <&scroll_up_down>,
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         FUNCTION {
